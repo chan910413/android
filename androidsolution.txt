@@ -1,6 +1,6 @@
 android contentprovider 安卓内容提供者注意事项，，
 
-在自己写的contentprovider 中，在配置文件中假
+在自己写的contentprovider 中，在配置文件中加 
 android:exported="true"
 
 在android4.2中会报permession denail（单词忘记了）权限拒绝
