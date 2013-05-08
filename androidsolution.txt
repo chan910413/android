@@ -7,3 +7,6 @@ android:exported="true"
 
 
 以前版本没有这个问题
+
+
+android.os.NetworkOnMainThreadException不能在主线程中访问网络
