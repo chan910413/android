@@ -12,6 +12,11 @@ android:exported="true"
 android.os.NetworkOnMainThreadException不能在主线程中访问网络
 
 
+
+// 要想给照相机设置参数 必须要知道你的相机支持什么样子的参数 
+//System.out.println(camera.getParameters().flatten());
+
+
 第一类:属性值为 true 或 false
 android:layout_centerHrizontal 水平居中
 android:layout_centerVertical 垂直居中
