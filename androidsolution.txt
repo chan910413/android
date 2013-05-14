@@ -14,6 +14,12 @@ android.os.NetworkOnMainThreadException不能在主线程中访问网络
 
 jsonlint.com
 
+在其他context中启动activity
+
+错误1：Caused by: android.util.AndroidRuntimeException: Calling startActivity() from outside of an Activity context requires the FLAG_ACTIVITY_NEW_TASK flag. Is this really what you want?
+Context中有一个startActivity方法，Activity继承自Context，重载了startActivity方法。如果使用 Activity的startActivity方法，不会有任何限制，而如果使用Context的startActivity方法的话，就需要开启一个新的task，遇到上面那个异常的，都是因为使用了Context的startActivity方法。解决办法是，加一个flag。
+intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
+
 
 // 要想给照相机设置参数 必须要知道你的相机支持什么样子的参数 
 //System.out.println(camera.getParameters().flatten());
