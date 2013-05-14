@@ -11,6 +11,8 @@ android:exported="true"
 
 android.os.NetworkOnMainThreadException不能在主线程中访问网络
 
+//android开发指南翻译，
+http://blog.csdn.net/nkmnkm/article/list/2
 
 jsonlint.com
 
