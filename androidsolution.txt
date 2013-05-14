@@ -14,6 +14,8 @@ android.os.NetworkOnMainThreadException不能在主线程中访问网络
 //android开发指南翻译，
 http://blog.csdn.net/nkmnkm/article/list/2
 
+http://apprel.zmdoc.com/api/console
+
 jsonlint.com
 
 在其他context中启动activity
