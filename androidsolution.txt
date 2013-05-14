@@ -12,6 +12,8 @@ android:exported="true"
 android.os.NetworkOnMainThreadException不能在主线程中访问网络
 
 
+jsonlint.com
+
 
 // 要想给照相机设置参数 必须要知道你的相机支持什么样子的参数 
 //System.out.println(camera.getParameters().flatten());
