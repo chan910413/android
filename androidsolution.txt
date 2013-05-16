@@ -8,6 +8,9 @@ android:exported="true"
 
 以前版本没有这个问题
 
+activity背景透明
+android:theme="@android:style/Theme.Translucent" 
+
 
 android.os.NetworkOnMainThreadException不能在主线程中访问网络
 
