@@ -1,0 +1,20 @@
+Button的onTouch，onClick，onLongClick事件发生先后顺序和关联：
+一，onTouch返回false
+首先是onTouch事件的down事件发生，此时，如果长按，触发onLongClick事件；
+然后是onTouch事件的up事件发生，up完毕，最后触发onClick事件。
+
+二，onTouch返回true
+首先是onTouch事件的down事件发生，然后是onTouch事件的up事件发生；期间不触发onClick和onLongClick事件
+
+三，onTouch：down返回true，up返回false：结果同二。
+机制分析：
+   onTouch事件中：down事件返回值标记此次事件是否为点击事件（返回false，是点击事件；返回true，不记为点击事件），而up事件标记此次事件结束时间，也就是判断是否为长按。
+只要当down返回true时候，系统将不把本次事件记录为点击事件，也就不会触发onClick或者onLongClick事件了。因此尽管当up的时候返回false，系统也不会继续触发onClick事件了。
+
+四，onTouch：down返回false，up返回true：
+首先是onTouch事件的down事件发生，此时：
+长按，触发onLongClick事件，然后是onTouch事件的up事件发生，完毕。
+短按，先触发onTouch的up事件， 到一定时间后，自动触发onLongClick事件。
+机制分析：
+  onTouch事件中：down事件返回值标记此次事件是否为点击事件（返回false，是点击事件；返回true，不记为点击事件），而up事件标记此次事件结束时间，也就是判断是否为长按。
+  当down返回false，标记此次事件为点击事件，而up返回了true，则表示此次事件一直没有结束，也就是一直长按下去了，达到长按临界时间后，自然触发长按事件，而onClick事件没有触发到
