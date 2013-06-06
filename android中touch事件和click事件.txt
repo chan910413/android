@@ -18,3 +18,23 @@ Button的onTouch，onClick，onLongClick事件发生先后顺序和关联：
 机制分析：
   onTouch事件中：down事件返回值标记此次事件是否为点击事件（返回false，是点击事件；返回true，不记为点击事件），而up事件标记此次事件结束时间，也就是判断是否为长按。
   当down返回false，标记此次事件为点击事件，而up返回了true，则表示此次事件一直没有结束，也就是一直长按下去了，达到长按临界时间后，自然触发长按事件，而onClick事件没有触发到
+
+
+
+
+EditText 不弹出软件键盘
+方法一：
+在AndroidMainfest.xml中选择哪个activity，设置windowSoftInputMode属性为adjustUnspecified|stateHidden
+例如：
+<activity android:name=".Main" android:label="@string/app_name" android:windowSoftInputMode="adjustUnspecified|stateHidden" android:configChanges="orientation|keyboardHidden"> <intent-filter> <action android:name="android.intent.action.MAIN" /> <category android:name="android.intent.category.LAUNCHER" /> </intent-filter> </activity>
+方法二：
+让EditText失去焦点，使用EditText的clearFocus方法
+例如：
+EditText edit=(EditText)findViewById(R.id.edit); edit.clearFocus();
+方法三：
+强制隐藏Android输入法窗口
+例如：
+EditText edit=(EditText)findViewById(R.id.edit); InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE); imm.hideSoftInputFromWindow(edit.getWindowToken(),0);
+2.EditText始终不弹出软件键盘
+例：
+EditText edit=(EditText)findViewById(R.id.edit); edit.setInputType(InputType.TYPE_NULL);
